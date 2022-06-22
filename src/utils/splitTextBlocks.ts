@@ -6,13 +6,13 @@ const mean = (numbers: Array<number>) => {
     return sum/numbers.length
 }
 
-const splitTextBlocks = (text: string = '', n: number = 3) => {
-    
-    let paragraphs = text.split('\n')
+const splitTextBlocks = (text: string = '', n: number = 3, paragraphSeparator = '\n') => {
+
+    let paragraphs = text.split(paragraphSeparator)
     let blocks = []
     let currentBlock = ''
     for (let i = 0; i < paragraphs.length + 1; i++) {
-        if (i % 3 === 0 && i !== 0) {
+        if (i % n === 0 && i !== 0) {
             blocks.push(currentBlock)
             currentBlock = ''
         }
@@ -29,6 +29,7 @@ const splitTextBlocks = (text: string = '', n: number = 3) => {
         let sentenceMean = mean(sentecesLengths)
         sentencesMeans.push(sentenceMean)
     }
+    sentencesMeans = sentencesMeans.filter(sentenceMean => !isNaN(sentenceMean))
     return sentencesMeans
 }
 
