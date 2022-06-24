@@ -8,13 +8,9 @@ interface literatureFingerprintingProps {
 }
 
 const LiteratureFingerprinting = ({texts = [''], n = 3}: literatureFingerprintingProps) => {
-
     const literatureFingerprintingStyle: React.CSSProperties = {
         display: 'flex'
     }
-
-    texts = [`
-    `]
 
     let allTextsLengths = []
     for (let i = 0; i < texts.length; i++) {

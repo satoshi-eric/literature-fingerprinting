@@ -11,7 +11,7 @@ const BookRepresentation = ({textBlockMeans = [], scale}: BookRepresentationProp
         width: '80px',
         display: 'flex', 
         flexWrap: 'wrap', 
-        margin: '10px'
+        margin: '10px',
     }
 
     const textBlockStyle = (textBlockMean: number): React.CSSProperties => {
