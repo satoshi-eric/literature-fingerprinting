@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import LiteratureFingerprinting from './components/LiteratureFingerprinting';
+import * as d3 from 'd3'
 
 function App() {
   const parseErrorStyle = {color: 'red', display: 'inline', marginLeft: '10px'}

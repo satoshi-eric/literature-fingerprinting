@@ -14,7 +14,7 @@ const LiteratureFingerprinting = ({texts = [''], n = 3}: literatureFingerprintin
 
     let allTextsLengths = []
     for (let i = 0; i < texts.length; i++) {
-        allTextsLengths.push(...splitTextBlocks(texts[i], n))
+        allTextsLengths.push(...splitTextBlocks(texts[i], n, /[\n]+/g))
     }
 
     const scale = d3.scaleLinear()
@@ -23,7 +23,7 @@ const LiteratureFingerprinting = ({texts = [''], n = 3}: literatureFingerprintin
 
     let textsSplits = texts.map((text, i) => 
         <BookRepresentation key={i} scale={scale}
-            textBlockMeans={splitTextBlocks(text, n)} />
+            textBlockMeans={splitTextBlocks(text, n, /\n+/g)} />
     )
 
     return (

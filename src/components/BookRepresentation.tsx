@@ -9,8 +9,7 @@ interface BookRepresentationProps {
 const BookRepresentation = ({textBlockMeans = [], scale}: BookRepresentationProps) => {
     const bookStyle: React.CSSProperties = {
         width: '80px',
-        display: 'flex', 
-        flexWrap: 'wrap', 
+        display: 'inline',
         margin: '10px',
     }
 
@@ -19,7 +18,7 @@ const BookRepresentation = ({textBlockMeans = [], scale}: BookRepresentationProp
             backgroundColor: `${d3.interpolateRdBu(1 - scale(textBlockMean))}`,
             width: '10px',
             height: '10px',
-            margin: '0', 
+            float: 'left',
             boxSizing: 'border-box'
         }
     }
