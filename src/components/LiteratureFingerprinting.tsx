@@ -4,10 +4,11 @@ import * as d3 from "d3"
 
 interface literatureFingerprintingProps {
     texts?: Array<string>,
+    filenames?: Array<string>,
     n?: number
 }
 
-const LiteratureFingerprinting = ({texts = [''], n = 3}: literatureFingerprintingProps) => {
+const LiteratureFingerprinting = ({texts = [''], filenames = [''], n = 3}: literatureFingerprintingProps) => {
     const literatureFingerprintingStyle: React.CSSProperties = {
         display: 'flex'
     }
@@ -22,7 +23,7 @@ const LiteratureFingerprinting = ({texts = [''], n = 3}: literatureFingerprintin
         .range([0, 1])
 
     let textsSplits = texts.map((text, i) => 
-        <BookRepresentation key={i} scale={scale}
+        <BookRepresentation key={i} scale={scale} filename={filenames[i]}
             textBlockMeans={splitTextBlocks(text, n, /\n+/g)} />
     )
 

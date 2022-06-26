@@ -28,6 +28,7 @@ function App() {
   const [blockValue, setBlockValue] = useState(10)
   const [parseError, setParseError] = useState(false)
   const [texts, setTexts] = useState<Array<string>>([])
+  const [filenames, setFilenames] = useState<Array<string>>([])
 
   const handleChangeBlockValue = (event: ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(event.target.value)
@@ -42,7 +43,10 @@ function App() {
 
   const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files as ArrayLike<File>);
-    getFiles(files).then(texts => setTexts(texts))
+    setFilenames(files.map(file => file.name))
+    getFiles(files).then(texts => {
+      setTexts(texts)
+  })
   }
 
   const getFiles = async (files: Array<File>) => {
@@ -63,7 +67,7 @@ function App() {
         <div style={gradientBarStyle}></div>
       </div>
       <div>
-        <LiteratureFingerprinting n={blockValue} texts={texts} />
+        <LiteratureFingerprinting n={blockValue} texts={texts} filenames={filenames} />
       </div>
     </div>
   );
