@@ -41,12 +41,12 @@ function App() {
     }
   }
 
-  const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleFileInputChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files as ArrayLike<File>);
     setFilenames(files.map(file => file.name))
-    getFiles(files).then(texts => {
-      setTexts(texts)
-  })
+      getFiles(files).then(texts => {
+        setTexts(texts)
+    })
   }
 
   const getFiles = async (files: Array<File>) => {
