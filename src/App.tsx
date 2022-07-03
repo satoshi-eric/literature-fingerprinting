@@ -4,7 +4,7 @@ import LiteratureFingerprinting from './components/LiteratureFingerprinting';
 function App() {
   const parseErrorStyle = {color: 'red', display: 'inline', marginLeft: '10px'}
   const noParseErrorStyle = {display: 'none'}
-  const fileInputStyle = {display: 'flex'}
+  const fileInputStyle = {display: 'flex', marginTop: '10px'}
 
 
   const [blockValue, setBlockValue] = useState(10)
@@ -43,9 +43,11 @@ function App() {
     <div>
       <h1>Literature Fingerprinting</h1>
       <div>
-        <label htmlFor="value-block">Number of paragraphs per blocks: </label>
-        <input type="text" id='value-block' onChange={(event) => handleChangeBlockValue(event)} />
-        <input style={fileInputStyle} onChange={(event) => handleFileInputChange(event)} type="file" multiple={true} />
+        <div style={fileInputStyle} >
+          <label htmlFor="value-block">Number of paragraphs per blocks: </label>
+          <input style={{marginLeft: '10px'}} type="text" id='value-block' onChange={(event) => handleChangeBlockValue(event)} />
+        </div>
+        <input style={{marginTop: '10px'}} onChange={(event) => handleFileInputChange(event)} type="file" multiple={true} />
         <div style={parseError ? parseErrorStyle : noParseErrorStyle}>Digite um número.</div>
       </div>
       <div>
