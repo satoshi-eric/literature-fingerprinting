@@ -9,7 +9,6 @@ const mean = (numbers: Array<number>) => {
 const splitTextBlocks = (text: string = '', n: number = 3, paragraphSeparator: string | RegExp = '\n') => {
     const formatedText = text.replace(/[\r]/g, '')
     let paragraphs = formatedText.split(paragraphSeparator)
-    console.log(paragraphs)
     let blocks = []
     let currentBlock = ''
     for (let i = 0; i < paragraphs.length + 1; i++) {

@@ -25,7 +25,7 @@ const BookRepresentation = ({textBlockMeans = [], filename = '', scale}: BookRep
 
     const textBlockStyle = (textBlockMean: number): React.CSSProperties => {
         return {
-            backgroundColor: `${d3.interpolateRdBu(1 - scale(textBlockMean))}`,
+            backgroundColor: `${d3.interpolateRdBu(scale(textBlockMean))}`,
             width: '10px',
             height: '10px',
             float: 'left',

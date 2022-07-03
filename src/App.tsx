@@ -1,29 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 import LiteratureFingerprinting from './components/LiteratureFingerprinting';
-import * as d3 from 'd3'
 
 function App() {
   const parseErrorStyle = {color: 'red', display: 'inline', marginLeft: '10px'}
   const noParseErrorStyle = {display: 'none'}
   const fileInputStyle = {display: 'flex'}
-  const gradientBarStyle: React.CSSProperties = {
-    marginTop: '10px',
-    width: '400px',
-    height: '20px',
-    background: `linear-gradient(90deg, 
-      ${d3.interpolateRdBu(1)} 0%, 
-      ${d3.interpolateRdBu(0.9)} 10%, 
-      ${d3.interpolateRdBu(0.8)} 20%, 
-      ${d3.interpolateRdBu(0.7)} 30%,
-      ${d3.interpolateRdBu(0.6)} 40%, 
-      ${d3.interpolateRdBu(0.5)} 50%, 
-      ${d3.interpolateRdBu(0.4)} 60%,
-      ${d3.interpolateRdBu(0.3)} 70%, 
-      ${d3.interpolateRdBu(0.2)} 80%,
-      ${d3.interpolateRdBu(0.1)} 90%,
-      ${d3.interpolateRdBu(0)} 100%
-    )`,
-  }
+
 
   const [blockValue, setBlockValue] = useState(10)
   const [parseError, setParseError] = useState(false)
@@ -59,15 +41,15 @@ function App() {
 
   return (
     <div>
+      <h1>Literature Fingerprinting</h1>
       <div>
-        <label htmlFor="value-block">Número de parágrafo por bloco: </label>
+        <label htmlFor="value-block">Number of paragraphs per blocks: </label>
         <input type="text" id='value-block' onChange={(event) => handleChangeBlockValue(event)} />
         <input style={fileInputStyle} onChange={(event) => handleFileInputChange(event)} type="file" multiple={true} />
         <div style={parseError ? parseErrorStyle : noParseErrorStyle}>Digite um número.</div>
-        <div style={gradientBarStyle}></div>
       </div>
       <div>
-        <LiteratureFingerprinting n={blockValue} texts={texts} filenames={filenames} />
+        <LiteratureFingerprinting n={blockValue} texts={texts} filenames={filenames}  />
       </div>
     </div>
   );
